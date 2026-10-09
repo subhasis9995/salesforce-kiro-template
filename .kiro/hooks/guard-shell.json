@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Guard shell commands",
+      "description": "Blocks git writes, destructive or prod-targeted sf commands, file deletion, and guard tampering. Exit 2 blocks.",
+      "trigger": "PreToolUse",
+      "matcher": "shell|Shell|bash|Bash|execute|Execute|command|Command|terminal|Terminal|powershell|PowerShell",
+      "action": { "type": "command", "command": "node .kiro/hooks/scripts/guard.js shell" },
+      "timeout": 15,
+      "enabled": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "command": "uvx",
+      "args": ["mcp-atlassian==0.23.1"],
+      "env": {
+        "JIRA_URL": "https://YOUR_COMPANY.atlassian.net",
+        "JIRA_USERNAME": "${ATLASSIAN_EMAIL}",
+        "JIRA_API_TOKEN": "${ATLASSIAN_API_TOKEN}",
+        "CONFLUENCE_URL": "https://YOUR_COMPANY.atlassian.net/wiki",
+        "CONFLUENCE_USERNAME": "${ATLASSIAN_EMAIL}",
+        "CONFLUENCE_API_TOKEN": "${ATLASSIAN_API_TOKEN}",
+        "READ_ONLY_MODE": "true",
+        "ENABLED_TOOLS": "jira_get_issue,jira_search,confluence_search,confluence_get_page",
+        "FASTMCP_LOG_LEVEL": "ERROR"
+      },
+      "autoApprove": ["jira_get_issue", "jira_search", "confluence_search", "confluence_get_page"],
+      "disabled": false
+    }
+  }
+}

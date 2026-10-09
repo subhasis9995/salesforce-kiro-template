@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Session wrap-up (manual)",
+      "description": "Run manually at the end of a work session. Replaces the old Stop hook, which fired after every agent turn and burned tokens.",
+      "trigger": "Manual",
+      "action": {
+        "type": "agent",
+        "prompt": "Wrap up the session in 8 lines or fewer: (1) one-line summary of the work; (2) the spec status line from approvals.md and tasks.md; (3) any new durable facts written to .kiro/memory/ (no duplicates; set 'Last updated' in 04-project-memory.md); (4) git commands for the user to run manually, if there are changes; (5) pending deploy steps, if any. Do not commit, push, or deploy."
+      }
+    }
+  ]
+}

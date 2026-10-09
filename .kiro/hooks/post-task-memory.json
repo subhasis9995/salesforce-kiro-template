@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Post-task memory update",
+      "trigger": "PostTaskExec",
+      "action": {
+        "type": "agent",
+        "prompt": "A spec task finished. Did it produce a NEW durable fact, such as a decision, a failure plus its fix, a business rule, tech debt, a new component, or a convention? If not, do nothing and output nothing. If so, add one line per fact ('[YYYY-MM-DD] fact | source | how to apply') to the matching .kiro/memory/*.md file. If an existing line is outdated, edit it instead of adding a duplicate. Promote a fact to 04-project-memory.md only if it is critical, and keep that file under 120 lines. Mark the task [x] in tasks.md only if its tests passed. Output at most 1 line."
+      }
+    }
+  ]
+}

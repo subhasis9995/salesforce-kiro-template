@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Guard file writes",
+      "description": "Blocks edits under package dirs until approvals.md has Gate A (user + manager) and Gate B. Blocks destructiveChanges and guard-file edits. Warns on DML delete.",
+      "trigger": "PreToolUse",
+      "matcher": "write|Write|edit|Edit|replace|Replace|create|Create|append|Append|insert|Insert",
+      "action": { "type": "command", "command": "node .kiro/hooks/scripts/guard.js write" },
+      "timeout": 15,
+      "enabled": true
+    }
+  ]
+}

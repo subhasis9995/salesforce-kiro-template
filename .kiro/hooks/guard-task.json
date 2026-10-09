@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Gate spec task execution",
+      "description": "Blocks spec task execution unless the spec's approvals.md is fully approved and STATUS is IN_PROGRESS.",
+      "trigger": "PreTaskExec",
+      "action": { "type": "command", "command": "node .kiro/hooks/scripts/guard.js task" },
+      "timeout": 15,
+      "enabled": true
+    }
+  ]
+}

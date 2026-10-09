@@ -1,0 +1,13 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Session init",
+      "trigger": "SessionStart",
+      "action": {
+        "type": "agent",
+        "prompt": "Session start. Do not restate the rules. Do the following silently, and output at most 3 lines:\n1. If 04-project-memory.md has an empty Overview, say: 'New workspace. Reply `init` to run project initialization (#07-project-init).'\n2. Check .kiro/specs/*/approvals.md files for a STATUS other than DONE. For each one, report a single line: '<feature>: <STATUS>, next: <first unchecked task in tasks.md, or the pending gate>. Reply `resume <feature>`.'\n3. Otherwise output nothing."
+      }
+    }
+  ]
+}

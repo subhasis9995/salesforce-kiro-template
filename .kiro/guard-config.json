@@ -1,0 +1,33 @@
+﻿{
+  "_comment": "HUMAN-EDITED ONLY. Kiro hooks block agent writes to this file. allowedOrgs = sandbox aliases or usernames Kiro may deploy, validate, or write data to. productionOrgs = always blocked for Kiro writes. packageDirs = must match packageDirectories[].path in sfdx-project.json.",
+
+  "_howto": "Run 'sf org list' to get your aliases. Run 'sf org display --target-org <alias>' to confirm IsSandbox=true before adding to allowedOrgs. Never add a production org to allowedOrgs.",
+
+  "allowedOrgs": [
+    "dev",
+    "qa",
+    "uat"
+  ],
+
+  "_allowedOrgs_notes": {
+    "dev":  "Developer sandbox — primary TDD and development org. Alias set via: sf alias set dev=john.doe@company.com.dev",
+    "qa":   "QA / integration sandbox — used for regression testing before UAT",
+    "uat":  "UAT sandbox — user acceptance testing. Deploy here only after QA sign-off"
+  },
+
+  "productionOrgs": [
+    "prod",
+    "john.doe@company.com"
+  ],
+
+  "_productionOrgs_notes": {
+    "prod":                "Production alias — read-only for Kiro. Set via: sf alias set prod=john.doe@company.com",
+    "john.doe@company.com": "Production username — added as a safety net in case the alias is bypassed"
+  },
+
+  "packageDirs": [
+    "force-app"
+  ],
+
+  "_packageDirs_notes": "Must match packageDirectories[].path in sfdx-project.json. Add more entries if your project has multiple package directories, e.g. ['force-app', 'force-app-managed', 'unpackaged']."
+}
